@@ -10,6 +10,7 @@ import Card from "../../../shared/components/Card/Card";
 import Label from "../../../shared/components/Header/Label";
 import InputField from "../../../shared/components/InputField/InputField";
 import InputTags from "../../../shared/components/InputTags/InputTags";
+import "../../../shared/components/InputField/input-field.css";
 
 const schema = yup
 	.object({
@@ -18,8 +19,17 @@ const schema = yup
 	})
 	.required();
 
-function CoronavirusQuestions() {
+function MalariaQuestions() {
 	const navigate = useNavigate();
+
+	const [fever, setfever] = useState("");
+	const [vomiting, setvomiting] = useState("");
+	const [diarrhea, setDiarrhea] = useState("");
+	const [muscle, setMuscle] = useState("");
+	const [fatigue, setFatigue] = useState("");
+	const [coughing, setcoughing] = useState("");
+
+	const [message, setmessage] = useState("");
 
 	const [symptoms, setSymptoms] = useState([]);
 
@@ -75,32 +85,21 @@ function CoronavirusQuestions() {
 		navigate("/");
 	});
 
-	const [breathing, setbreathing] = useState("");
-	const [fever, setfever] = useState("");
-	const [discomfort, setdiscomfort] = useState("");
-	const [nausea, setNausea] = useState("");
-	const [taste, settaste] = useState("");
-	const [rash, setrash] = useState("");
-	const [joint, setjoint] = useState("");
-
-	const [message, setmessage] = useState("");
-
 	const handleDiagnosis = (e) => {
 		e.preventDefault();
 		setmessage("");
 		if (
-			breathing === "Yes" &&
 			fever === "Yes" &&
-			discomfort === "Yes" &&
-			nausea === "Yes" &&
-			taste === "Yes"
+			vomiting === "Yes" &&
+			diarrhea === "Yes" &&
+			fatigue === "Yes"
 		) {
 			setmessage(
-				"You have coronavirus. Get vaccinated at the nearest health center. Please call 020 000 0000"
+				"You have malaria. Best Drug: ACTs. Dosage: Will be prerscribed upon purchase at pharmacy. The drug can be bought at Top up Pharmacy amongst a few otheres. CALL 0501537575 to talk to pharmacy."
 			);
 			return null;
 		} else {
-			setmessage("You do not have Coronaviirus");
+			setmessage("You do not have malaria");
 			return null;
 		}
 	};
@@ -113,84 +112,37 @@ function CoronavirusQuestions() {
 					className="form-disease"
 					style={{ width: 400, marginTop: 100 }}
 				>
-					{/*
-						<Label hint="Do you have difficulty breathing?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+					{/*   <Label hint="Do you have fever"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
+       
+                        <Label hint="General feeling of discomfort?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
+                         
+                        <Label hint="Nausea and vomiting?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
 
-						<Label hint="Do you have fever" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Diarrhea?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} /> 
 
-						<Label hint="General feeling of discomfort?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Muscle or joint pain?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} /> 
 
-						<Label hint="Nausea and vomiting?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Fatigue?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />  
 
-						<Label hint="Lost of taste or smell?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        {/* <InputField type="text" hint="" error={errors.name?.message} register={register("name")} /> 
 
-						<Label hint="Muscle or joint pain?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
-
-						<Label hint="Do you have a rash on skin?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
-
-						<InputTags
-							hint="Symptom"
-							error={selectedSymptomsError}
-							tags={selectedSymptoms}
-							suggestions={symptoms}
-							onDelete={onDelete}
-							onAddition={onAddition}
-						/>
-
-						 <InputField type="textarea" hint="Brief description" error={errors.description?.message} register={register("description")} /> 
-
-						<ActionButton
-							text="Save"
-							type="success"
-							style={{ marginTop: "20px" }}
-						/>
-                        */}
-
-					<Label hint="Do you have difficulty breathing?" />
-					<select
-						value={breathing}
-						onChange={(e) => setbreathing(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
+                        <Label hint="Are you coughing?"/>
+                        <InputField type="text" error={errors.description?.message} register={register("description")} />
+                        <InputTags
+                            hint="Symptom"
+                            error={selectedSymptomsError}
+                            tags={selectedSymptoms}
+                            suggestions={symptoms}
+                            onDelete={onDelete}
+                            onAddition={onAddition} />
+                            
+                        <ActionButton text="Save" type="success" style={{ marginTop: "20px" }} />*/}
 
 					<Label hint="Do you have fever" />
 					<select
@@ -203,21 +155,10 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="General feeling of discomfort?" />
-					<select
-						value={discomfort}
-						onChange={(e) => setdiscomfort(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
 					<Label hint="Nausea and vomiting?" />
 					<select
-						value={nausea}
-						onChange={(e) => setNausea(e.target.value)}
+						value={vomiting}
+						onChange={(e) => setvomiting(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -225,10 +166,10 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="Lost of taste or smell?" />
+					<Label hint="Diarrhea?" />
 					<select
-						value={settaste}
-						onChange={(e) => settaste(e.target.value)}
+						value={diarrhea}
+						onChange={(e) => setDiarrhea(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -238,8 +179,8 @@ function CoronavirusQuestions() {
 
 					<Label hint="Muscle or joint pain?" />
 					<select
-						value={joint}
-						onChange={(e) => setjoint(e.target.value)}
+						value={muscle}
+						onChange={(e) => setMuscle(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -247,16 +188,28 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="Do you have a rash on skin?" />
+					<Label hint="Fatigue?" />
 					<select
-						value={rash}
-						onChange={(e) => setrash(e.target.value)}
+						value={fatigue}
+						onChange={(e) => setFatigue(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
 						<option value={"Yes"}>Yes</option>
 						<option value={"No"}>No</option>
 					</select>
+
+					<Label hint="Are you coughing?" />
+					<select
+						value={coughing}
+						onChange={(e) => setcoughing(e.target.value)}
+						name={"fever"}
+					>
+						<option value={""}>--Select option--</option>
+						<option value={"Yes"}>Yes</option>
+						<option value={"No"}>No</option>
+					</select>
+
 					{message && (
 						<p style={{ color: "white", marginTop: 10 }}>{message}</p>
 					)}
@@ -280,4 +233,4 @@ function CoronavirusQuestions() {
 	);
 }
 
-export default CoronavirusQuestions;
+export default MalariaQuestions;

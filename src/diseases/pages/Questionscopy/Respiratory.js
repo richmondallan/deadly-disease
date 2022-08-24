@@ -85,7 +85,7 @@ function RespiratoryQuestions() {
 			);
 			return null;
 		} else {
-			setmessage("You do not have D");
+			setmessage("You do not have malaria");
 			return null;
 		}
 	};

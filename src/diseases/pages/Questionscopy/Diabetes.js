@@ -18,7 +18,7 @@ const schema = yup
 	})
 	.required();
 
-function CoronavirusQuestions() {
+function DiabetesQuestions() {
 	const navigate = useNavigate();
 
 	const [symptoms, setSymptoms] = useState([]);
@@ -75,13 +75,11 @@ function CoronavirusQuestions() {
 		navigate("/");
 	});
 
-	const [breathing, setbreathing] = useState("");
-	const [fever, setfever] = useState("");
+	const [hunger, sethunger] = useState("");
 	const [discomfort, setdiscomfort] = useState("");
-	const [nausea, setNausea] = useState("");
-	const [taste, settaste] = useState("");
-	const [rash, setrash] = useState("");
-	const [joint, setjoint] = useState("");
+	const [blurry, setblurry] = useState("");
+	const [sores, setsores] = useState("");
+	const [weight, setweight] = useState("");
 
 	const [message, setmessage] = useState("");
 
@@ -89,18 +87,18 @@ function CoronavirusQuestions() {
 		e.preventDefault();
 		setmessage("");
 		if (
-			breathing === "Yes" &&
-			fever === "Yes" &&
+			hunger === "Yes" &&
 			discomfort === "Yes" &&
-			nausea === "Yes" &&
-			taste === "Yes"
+			blurry === "Yes" &&
+			sores === "Yes" &&
+			weight === "Yes"
 		) {
 			setmessage(
-				"You have coronavirus. Get vaccinated at the nearest health center. Please call 020 000 0000"
+				"You have diabetes. For type 1 diabetes Insulin is the main treatment. Dosage: Will be prescribed upon purchase at pharmacy due to varied demography. For type 2 diabetesmanage your diet, thus take fruits and vegetables and exerciose regularly. Proceed to medication if there is no improvement in health conditioin. The drug can be bought at Top up Pharmacy amongst a few otheres. CALL 0501537575 to talk to pharmacy."
 			);
 			return null;
 		} else {
-			setmessage("You do not have Coronaviirus");
+			setmessage("You do not have malaria");
 			return null;
 		}
 	};
@@ -113,89 +111,50 @@ function CoronavirusQuestions() {
 					className="form-disease"
 					style={{ width: 400, marginTop: 100 }}
 				>
-					{/*
-						<Label hint="Do you have difficulty breathing?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+					{/* <InputField type="text" hint="Name of Disease" error={errors.name?.message} register={register("name")} /> 
+                        <Label hint="Do you feel increased hunger more often or occasionally?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} />
+                         
+                        <Label hint="General feeling of discomfort?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} />
+                         
+                        <Label hint="Nausea and vomiting?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} />
 
-						<Label hint="Do you have fever" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Do you have blurry vision?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} /> 
 
-						<Label hint="General feeling of discomfort?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Frequent hunger?"/>
+                        <InputField type="text" error={errors.name?.message} register={register("name")} /> 
+                            
+                        <InputTags
+                            hint="Symptom"
+                            error={selectedSymptomsError}
+                            tags={selectedSymptoms}
+                            suggestions={symptoms}
+                            onDelete={onDelete}
+                            onAddition={onAddition} /> 
 
-						<Label hint="Nausea and vomiting?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
+                        <Label hint="Do you have sores that don't heal?"/>
+                        <InputField type="text"  error={errors.description?.message} register={register("description")} />
 
-						<Label hint="Lost of taste or smell?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
-
-						<Label hint="Muscle or joint pain?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
-
-						<Label hint="Do you have a rash on skin?" />
-						<InputField
-							type="text"
-							error={errors.name?.message}
-							register={register("name")}
-						/>
-
-						<InputTags
-							hint="Symptom"
-							error={selectedSymptomsError}
-							tags={selectedSymptoms}
-							suggestions={symptoms}
-							onDelete={onDelete}
-							onAddition={onAddition}
-						/>
-
-						 <InputField type="textarea" hint="Brief description" error={errors.description?.message} register={register("description")} /> 
-
-						<ActionButton
-							text="Save"
-							type="success"
-							style={{ marginTop: "20px" }}
-						/>
-                        */}
-
-					<Label hint="Do you have difficulty breathing?" />
+                        <ActionButton text="Save" type="success" style={{ marginTop: "20px" }} />
+                        <Label hint="Do you have fever" />
 					<select
-						value={breathing}
-						onChange={(e) => setbreathing(e.target.value)}
+						value={fever}
+						onChange={(e) => setfever(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
 						<option value={"Yes"}>Yes</option>
 						<option value={"No"}>No</option>
 					</select>
+*/}
 
-					<Label hint="Do you have fever" />
+					<Label hint="Do you feel increased hunger more often or occasionally?" />
 					<select
-						value={fever}
-						onChange={(e) => setfever(e.target.value)}
+						value={hunger}
+						onChange={(e) => sethunger(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -214,10 +173,10 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="Nausea and vomiting?" />
+					<Label hint="Do you have blurry vision?" />
 					<select
-						value={nausea}
-						onChange={(e) => setNausea(e.target.value)}
+						value={blurry}
+						onChange={(e) => setblurry(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -225,10 +184,10 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="Lost of taste or smell?" />
+					<Label hint="Do you have sores that don't heal?" />
 					<select
-						value={settaste}
-						onChange={(e) => settaste(e.target.value)}
+						value={sores}
+						onChange={(e) => setsores(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -236,21 +195,10 @@ function CoronavirusQuestions() {
 						<option value={"No"}>No</option>
 					</select>
 
-					<Label hint="Muscle or joint pain?" />
+					<Label hint="Have you lost weight" />
 					<select
-						value={joint}
-						onChange={(e) => setjoint(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Do you have a rash on skin?" />
-					<select
-						value={rash}
-						onChange={(e) => setrash(e.target.value)}
+						value={weight}
+						onChange={(e) => setweight(e.target.value)}
 						name={"fever"}
 					>
 						<option value={""}>--Select option--</option>
@@ -280,4 +228,4 @@ function CoronavirusQuestions() {
 	);
 }
 
-export default CoronavirusQuestions;
+export default DiabetesQuestions;

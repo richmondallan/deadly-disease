@@ -76,12 +76,10 @@ function CoronavirusQuestions() {
 	});
 
 	const [breathing, setbreathing] = useState("");
-	const [fever, setfever] = useState("");
 	const [discomfort, setdiscomfort] = useState("");
-	const [nausea, setNausea] = useState("");
-	const [taste, settaste] = useState("");
-	const [rash, setrash] = useState("");
-	const [joint, setjoint] = useState("");
+	const [blurry, setblurry] = useState("");
+	const [sores, setsores] = useState("");
+	const [weight, setweight] = useState("");
 
 	const [message, setmessage] = useState("");
 
@@ -90,17 +88,17 @@ function CoronavirusQuestions() {
 		setmessage("");
 		if (
 			breathing === "Yes" &&
-			fever === "Yes" &&
 			discomfort === "Yes" &&
-			nausea === "Yes" &&
-			taste === "Yes"
+			blurry === "Yes" &&
+			sores === "Yes" &&
+			weight === "Yes"
 		) {
 			setmessage(
-				"You have coronavirus. Get vaccinated at the nearest health center. Please call 020 000 0000"
+				"You have diabetes. For type 1 diabetes Insulin is the main treatment. Dosage: Will be prescribed upon purchase at pharmacy due to varied demography. For type 2 diabetesmanage your diet, thus take fruits and vegetables and exerciose regularly. Proceed to medication if there is no improvement in health conditioin. The drug can be bought at Top up Pharmacy amongst a few otheres. CALL 0501537575 to talk to pharmacy."
 			);
 			return null;
 		} else {
-			setmessage("You do not have Coronaviirus");
+			setmessage("You do not have malaria");
 			return null;
 		}
 	};
@@ -108,12 +106,9 @@ function CoronavirusQuestions() {
 	return (
 		<main className="page">
 			<div className="content">
-				<form
-					onSubmit={handleDiagnosis}
-					className="form-disease"
-					style={{ width: 400, marginTop: 100 }}
-				>
-					{/*
+				<Card title="Coronavirus Questions">
+					<form className="form-disease" onSubmit={onSave}>
+						{/*
 						<Label hint="Do you have difficulty breathing?" />
 						<InputField
 							type="text"
@@ -181,100 +176,18 @@ function CoronavirusQuestions() {
 						/>
                         */}
 
-					<Label hint="Do you have difficulty breathing?" />
-					<select
-						value={breathing}
-						onChange={(e) => setbreathing(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Do you have fever" />
-					<select
-						value={fever}
-						onChange={(e) => setfever(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="General feeling of discomfort?" />
-					<select
-						value={discomfort}
-						onChange={(e) => setdiscomfort(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Nausea and vomiting?" />
-					<select
-						value={nausea}
-						onChange={(e) => setNausea(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Lost of taste or smell?" />
-					<select
-						value={settaste}
-						onChange={(e) => settaste(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Muscle or joint pain?" />
-					<select
-						value={joint}
-						onChange={(e) => setjoint(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-
-					<Label hint="Do you have a rash on skin?" />
-					<select
-						value={rash}
-						onChange={(e) => setrash(e.target.value)}
-						name={"fever"}
-					>
-						<option value={""}>--Select option--</option>
-						<option value={"Yes"}>Yes</option>
-						<option value={"No"}>No</option>
-					</select>
-					{message && (
-						<p style={{ color: "white", marginTop: 10 }}>{message}</p>
-					)}
-					<button
-						style={{
-							width: "100%",
-							height: 45,
-							marginTop: 20,
-							marginBottom: 20,
-							backgroundColor: "green",
-							color: "white",
-							border: 0,
-							borderRadius: 5,
-						}}
-					>
-						Diagnosis
-					</button>
-				</form>
+						<Label hint="Do you have difficulty breathing?" />
+						<select
+							value={breathing}
+							onChange={(e) => setbreathing(e.target.value)}
+							name={"fever"}
+						>
+							<option value={""}>--Select option--</option>
+							<option value={"Yes"}>Yes</option>
+							<option value={"No"}>No</option>
+						</select>
+					</form>
+				</Card>
 			</div>
 		</main>
 	);

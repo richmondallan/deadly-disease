@@ -17,8 +17,7 @@ const schema = yup.object({
     description: yup.string().required('Favor informar a descrição'),
 }).required();
 
-function RespiratoryQuestions() {
-    
+function StrokeQuestions() {
     const navigate = useNavigate();
 
     const [symptoms, setSymptoms] = useState([])
@@ -62,54 +61,30 @@ function RespiratoryQuestions() {
         navigate('/');
     });
 
-    const [hunger, sethunger] = useState("");
-	const [discomfort, setdiscomfort] = useState("");
-	const [blurry, setblurry] = useState("");
-	const [sores, setsores] = useState("");
-	const [weight, setweight] = useState("");
-
-	const [message, setmessage] = useState("");
-
-	const handleDiagnosis = (e) => {
-		e.preventDefault();
-		setmessage("");
-		if (
-			hunger === "Yes" &&
-			discomfort === "Yes" &&
-			blurry === "Yes" &&
-			sores === "Yes" &&
-			weight === "Yes"
-		) {
-			setmessage(
-				"You have diabetes. For type 1 diabetes Insulin is the main treatment. Dosage: Will be prescribed upon purchase at pharmacy due to varied demography. For type 2 diabetesmanage your diet, thus take fruits and vegetables and exerciose regularly. Proceed to medication if there is no improvement in health conditioin. The drug can be bought at Top up Pharmacy amongst a few otheres. CALL 0501537575 to talk to pharmacy."
-			);
-			return null;
-		} else {
-			setmessage("You do not have D");
-			return null;
-		}
-	};
-
-
     return (
         <main className="page">
             <div className="content">
-                <Card title="Respiratory Questions">
+                <Card title="Stroke Questions">
                     <form className="form-disease" onSubmit={onSave}> 
 
-                         <Label hint="Diarrhea?"/>
-                        <InputField type="text" error={errors.name?.message} register={register("name")} />
+                        <Label hint="Do you see shortcomings in the face?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
+ 
+                        <Label hint="Do you experience sudden confusion or trouble speaking?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
+       
+                        <Label hint="Is there an abrupt disarray or inconvenience talking?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
+        
+                        <Label hint="Do you experience sudden difficulty walking or dizziness?"/>
+                        <InputField type="text"  error={errors.name?.message} register={register("name")} />
 
+                        {/* <InputField type="text" hint="Diarrhea?" error={errors.name?.message} register={register("name")} />  */}
 
-                        <Label hint="Diarrhea?"/>
-                        <InputField type="text" error={errors.name?.message} register={register("name")} />
-
-
-                        <Label hint="Diarrhea?"/>
-                        <InputField type="text" error={errors.name?.message} register={register("name")} />
-
-                        <Label hint="Diarrhea?"/>
-                        <InputField type="text" error={errors.description?.message} register={register("description")} />
+                        <Label hint="Do you have vision issues?" />
+                        <InputField type="text" hint="Do you have vision issues?" error={errors.name?.message} register={register("name")} /> 
+ 
+                        {/* <InputField type="text" hint="Fatigue?" error={errors.name?.message} register={register("name")} />   */}
 
                         <InputTags
                             hint="Symptom"
@@ -117,7 +92,9 @@ function RespiratoryQuestions() {
                             tags={selectedSymptoms}
                             suggestions={symptoms}
                             onDelete={onDelete}
-                            onAddition={onAddition} /> 
+                            onAddition={onAddition} />
+
+                        {/* <InputField type="textarea" hint="Brief description" error={errors.description?.message} register={register("description")} /> */}
 
                         <ActionButton text="Save" type="success" style={{ marginTop: "20px" }} />
                     </form>
@@ -127,4 +104,4 @@ function RespiratoryQuestions() {
     )
 }
 
-export default RespiratoryQuestions;
+export default StrokeQuestions;

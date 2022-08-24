@@ -1,0 +1,43 @@
+.btn button {
+    font-size: 1.2rem;
+    font-family: Heebo;
+    font-weight: 700;
+    border: 0;
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    transition: 0.2s;
+    background-color: #538af0;
+}
+
+.small button {
+    font-size: 1.0rem;
+}
+
+.normal button {
+    font-size: 1.2rem;
+}
+
+.large button {
+    font-size: 1.4rem;
+}
+
+.default button {
+    background-color: #187498;
+}
+
+.warn button {
+    background-color: #FF8D29;
+}
+
+.danger button {
+    background-color: #EB5353;
+}
+
+.success button {
+    background-color: #36AE7C;
+}

@@ -1,0 +1,49 @@
+header {
+    background-color: #2F3644;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    height: 60px;
+}
+
+.logo h1 {
+    display: inline-block;
+    font-family: Heebo;
+    font-weight: 700;
+    color: whitesmoke;
+
+    cursor: pointer;
+}
+
+.home-icon {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.btn-new button {
+    font-size: 1.2rem;
+    font-family: Heebo;
+    font-weight: 700;
+
+    background-color: #447CE2;
+    border: 0;
+
+    color: #fff;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.btn-new button:hover {
+    transition: 0.2s;
+    background-color: #538af0;
+}

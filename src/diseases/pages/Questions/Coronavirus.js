@@ -227,7 +227,7 @@ function CoronavirusQuestions() {
 
 					<Label hint="Lost of taste or smell?" />
 					<select
-						value={settaste}
+						value={taste}
 						onChange={(e) => settaste(e.target.value)}
 						name={"fever"}
 					>

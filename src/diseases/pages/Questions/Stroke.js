@@ -94,7 +94,7 @@ function StrokeQuestions() {
 			vision === "Yes"
 		) {
 			setmessage(
-				"You have stroke. Best drug: L-Arginine. Dosage: Oral administration within 30 minutes of a stroke significantly decreases frequency and severity of stroke epiosodes. Call diamondhealthhub for a pack of L-Arginine. Call 055 803 2699. diamondhealthhub is one of the pharmacy amongst many with stocks of the best drug"
+				"You have stroke. Best drug: L-Arginine. Dosage: Oral administration within 30 minutes of a stroke significantly decreases frequency and severity of stroke epiosodes. Call diamondhealthhub for a pack of L-Arginine. Call 055 803 2699. diamond health hub is one of the pharmacy amongst many with stocks of the best drug"
 			);
 			return null;
 		} else {
